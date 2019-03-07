@@ -1,0 +1,71 @@
+%% LyX 2.3.2 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{babel}
+\begin{document}
+
+\subsection*{Kubo-Streda formula for KPM based evaluation of the Hall conductivity}
+
+Below I compile a short derivation for the Hall conductivity suitable
+for single energy KPM calculations.
+
+Let us start from Eq. 1.56-1.58 of Jan Mrozek's PhD thesis.
+
+\begin{align}
+\sigma_{\mu\nu} & =\frac{e^{2}\hbar}{4\pi V}\text{Tr}\left[\hat{v}_{\nu}\hat{G}_{+}\hat{v}_{\mu}\left(\hat{G}_{+}-\hat{G}_{-}\right)-\hat{v}_{\nu}\left(\hat{G}_{+}-\hat{G}_{-}\right)\hat{v}_{\mu}\hat{G}_{-}\right]\\
++ & \frac{e^{2}\hbar}{4\pi V}\text{Tr}\left[\left(\hat{G}_{+}-\hat{G}_{-}\right)\left(\hat{r}_{\mu}\hat{v}_{\nu}-\hat{r}_{\nu}\hat{v}_{\mu}\right)\right]\nonumber \\
+ & =\sigma_{\mu\nu}^{I}+\sigma_{\mu\nu}^{II}
+\end{align}
+Taking in to account the Chebyshev expansion of the Green's function
+\begin{equation}
+\hat{G}_{\pm}=\mp\frac{2\text{i}}{\sqrt{1-E^{2}}}\sum_{m}g_{m}\text{e}^{\pm\text{i}m\arccos(E)}T_{m}\left(\hat{H}\right)
+\end{equation}
+ and also (see e.g. Tatiana G. Rappoport's supplementary)
+\begin{equation}
+\delta\left(E-H\right)=-\frac{1}{2\pi\text{i}}\left(\hat{G}_{+}-\hat{G}_{-}\right)
+\end{equation}
+\begin{equation}
+\delta\left(E-\hat{H}\right)=\frac{2}{\pi\sqrt{1-E^{2}}}\sum_{m}g_{m}T_{m}(E)T_{m}\left(\hat{H}\right),
+\end{equation}
+\begin{equation}
+\left(\hat{G}_{+}-\hat{G}_{-}\right)=-\frac{4\text{i}}{\sqrt{1-E^{2}}}\sum_{m}g_{m}T_{m}(E)T_{m}\left(\hat{H}\right)
+\end{equation}
+where $g_{m}$ are smoothing kernels of the Chebyshev expansion (e.g.
+Jackson). We have for the first contribution 
+\begin{align}
+\sigma_{\mu\nu}^{I} & =\frac{e^{2}\hbar}{4\pi V}\text{Tr}\left[\hat{v}_{\nu}\hat{G}_{+}\hat{v}_{\mu}\left(\hat{G}_{+}-\hat{G}_{-}\right)-\hat{v}_{\nu}\left(\hat{G}_{+}-\hat{G}_{-}\right)\hat{v}_{\mu}\hat{G}_{-}\right]\\
+ & =\frac{e^{2}\hbar}{4\pi V}\text{Tr}\left[\hat{v}_{\nu}\left(-\frac{2\text{i}}{\sqrt{1-E^{2}}}\sum_{m}g_{m}\text{e}^{\text{i}m\arccos(E)}T_{m}\left(\hat{H}\right)\right)\hat{v}_{\mu}\left(-\frac{4\text{i}}{\sqrt{1-E^{2}}}\sum_{n}g_{n}T_{n}(E)T_{n}\left(\hat{H}\right)\right)-\hat{v}_{\nu}\left(-\frac{4\text{i}}{\sqrt{1-E^{2}}}\sum_{m}g_{m}T_{m}(E)T_{m}\left(\hat{H}\right)\right)\hat{v}_{\mu}\left(\frac{2\text{i}}{\sqrt{1-E^{2}}}\sum_{m}g_{n}\text{e}^{-\text{i}n\arccos(E)}T_{n}\left(\hat{H}\right)\right)\right]\\
+ & =\frac{2e^{2}\hbar}{\pi V\left(1-E^{2}\right)}\text{Tr}\left[-\hat{v}_{\nu}\left(\sum_{m}g_{m}\text{e}^{\text{i}m\arccos(E)}T_{m}\left(\hat{H}\right)\right)\hat{v}_{\mu}\left(\sum_{n}g_{n}T_{n}(E)T_{n}\left(\hat{H}\right)\right)+\hat{v}_{\nu}\left(\sum_{m}g_{m}T_{m}(E)T_{m}\left(\hat{H}\right)\right)\hat{v}_{\mu}\left(\sum_{m}g_{n}\text{e}^{-\text{i}n\arccos(E)}T_{n}\left(\hat{H}\right)\right)\right]
+\end{align}
+employing stochastic evaluation of traces 
+\begin{equation}
+\text{Tr\ensuremath{\left[\hat{O}\right]}}\approx\sum_{r}\left\langle r\right|\hat{O}\left|r\right\rangle 
+\end{equation}
+\begin{align}
+\sigma_{\mu\nu}^{I} & =\frac{2e^{2}\hbar}{\pi V\left(1-E^{2}\right)}\sum_{r}\left[\left\langle r\right|\hat{v}_{\nu}\left(\sum_{m}g_{m}T_{m}(E)T_{m}\left(\hat{H}\right)\right)\hat{v}_{\mu}\left(\sum_{m}g_{n}\text{e}^{-\text{i}n\arccos(E)}T_{n}\left(\hat{H}\right)\right)\left|r\right\rangle -\left\langle r\right|\hat{v}_{\nu}\left(\sum_{m}g_{m}\text{e}^{\text{i}m\arccos(E)}T_{m}\left(\hat{H}\right)\right)\hat{v}_{\mu}\left(\sum_{n}g_{n}T_{n}(E)T_{n}\left(\hat{H}\right)\right)\left|r\right\rangle \right]\\
+ & =\frac{2e^{2}\hbar}{\pi V\left(1-E^{2}\right)}\sum_{r}\left[\left\langle \alpha r\right|\left.\beta r\right\rangle -\left\langle \gamma r\right|\left.\delta r\right\rangle \right]
+\end{align}
+with 
+\begin{align}
+\left\langle \alpha r\right| & =\left\langle r\right|\hat{v}_{\nu}\left(\sum_{m}g_{m}T_{m}(E)T_{m}\left(\hat{H}\right)\right)\\
+\left|\beta r\right\rangle  & =\hat{v}_{\mu}\left(\sum_{m}g_{n}\text{e}^{-\text{i}n\arccos(E)}T_{n}\left(\hat{H}\right)\right)\left|r\right\rangle \\
+\left\langle \gamma r\right| & =\left\langle r\right|\hat{v}_{\nu}\left(\sum_{m}g_{m}\text{e}^{\text{i}m\arccos(E)}T_{m}\left(\hat{H}\right)\right)\\
+\left|\delta r\right\rangle  & =\hat{v}_{\mu}\left(\sum_{n}g_{n}T_{n}(E)T_{n}\left(\hat{H}\right)\right)\left|r\right\rangle 
+\end{align}
+The above might be organized a bit more intelligently :) The other
+contribution is somewhat simpler
+\begin{align}
+\sigma_{\mu\nu}^{II} & =\frac{e^{2}\hbar}{4\pi V}\text{Tr}\left[\left(\hat{G}_{+}-\hat{G}_{-}\right)\left(\hat{r}_{\mu}\hat{v}_{\nu}-\hat{r}_{\nu}\hat{v}_{\mu}\right)\right]=\\
+ & =-\frac{\text{i}e^{2}\hbar}{\pi V\sqrt{1-E^{2}}}\text{Tr}\left[\left(\sum_{m}g_{m}T_{m}(E)T_{m}\left(\hat{H}\right)\right)\left(\hat{r}_{\mu}\hat{v}_{\nu}-\hat{r}_{\nu}\hat{v}_{\mu}\right)\right]\\
+ & =-\frac{\text{i}e^{2}\hbar}{\pi V\sqrt{1-E^{2}}}\sum_{r}\left[\left\langle r\right|\left(\sum_{m}g_{m}T_{m}(E)T_{m}\left(\hat{H}\right)\right)\left(\hat{r}_{\mu}\hat{v}_{\nu}-\hat{r}_{\nu}\hat{v}_{\mu}\right)\left|r\right\rangle \right]\\
+ & =-\frac{\text{i}e^{2}\hbar}{\pi V\sqrt{1-E^{2}}}\sum_{r}\left\langle Ar\right|\left.r\right\rangle 
+\end{align}
+\begin{equation}
+\left\langle Ar\right|=\left\langle r\right|\left(\sum_{m}g_{m}T_{m}(E)T_{m}\left(\hat{H}\right)\right)\left(\hat{r}_{\mu}\hat{v}_{\nu}-\hat{r}_{\nu}\hat{v}_{\mu}\right)
+\end{equation}
+
+\end{document}

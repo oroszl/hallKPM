@@ -1,0 +1,204 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Subsection*
+Kubo-Streda formula for KPM based evaluation of the Hall conductivity
+\end_layout
+
+\begin_layout Standard
+Below I compile a short derivation for the Hall conductivity suitable for
+ single energy KPM calculations.
+\end_layout
+
+\begin_layout Standard
+Let us start from Eq.
+ 1.56-1.58 of Jan Mrozek's PhD thesis.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\sigma_{\mu\nu} & =\frac{e^{2}\hbar}{4\pi V}\text{Tr}\left[\hat{v}_{\nu}\hat{G}_{+}\hat{v}_{\mu}\left(\hat{G}_{+}-\hat{G}_{-}\right)-\hat{v}_{\nu}\left(\hat{G}_{+}-\hat{G}_{-}\right)\hat{v}_{\mu}\hat{G}_{-}\right]\\
++ & \frac{e^{2}\hbar}{4\pi V}\text{Tr}\left[\left(\hat{G}_{+}-\hat{G}_{-}\right)\left(\hat{r}_{\mu}\hat{v}_{\nu}-\hat{r}_{\nu}\hat{v}_{\mu}\right)\right]\nonumber \\
+ & =\sigma_{\mu\nu}^{I}+\sigma_{\mu\nu}^{II}
+\end{align}
+
+\end_inset
+
+Taking in to account the Chebyshev expansion of the Green's function
+\begin_inset Formula 
+\begin{equation}
+\hat{G}_{\pm}=\mp\frac{2\text{i}}{\sqrt{1-E^{2}}}\sum_{m}g_{m}\text{e}^{\pm\text{i}m\arccos(E)}T_{m}\left(\hat{H}\right)
+\end{equation}
+
+\end_inset
+
+ and also (see e.g.
+ Tatiana G.
+ Rappoport's supplementary)
+\begin_inset Formula 
+\begin{equation}
+\delta\left(E-H\right)=-\frac{1}{2\pi\text{i}}\left(\hat{G}_{+}-\hat{G}_{-}\right)
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\delta\left(E-\hat{H}\right)=\frac{2}{\pi\sqrt{1-E^{2}}}\sum_{m}g_{m}T_{m}(E)T_{m}\left(\hat{H}\right),
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\left(\hat{G}_{+}-\hat{G}_{-}\right)=-\frac{4\text{i}}{\sqrt{1-E^{2}}}\sum_{m}g_{m}T_{m}(E)T_{m}\left(\hat{H}\right)
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $g_{m}$
+\end_inset
+
+ are smoothing kernels of the Chebyshev expansion (e.g.
+ Jackson).
+ We have for the first contribution 
+\begin_inset Formula 
+\begin{align}
+\sigma_{\mu\nu}^{I} & =\frac{e^{2}\hbar}{4\pi V}\text{Tr}\left[\hat{v}_{\nu}\hat{G}_{+}\hat{v}_{\mu}\left(\hat{G}_{+}-\hat{G}_{-}\right)-\hat{v}_{\nu}\left(\hat{G}_{+}-\hat{G}_{-}\right)\hat{v}_{\mu}\hat{G}_{-}\right]\\
+ & =\frac{e^{2}\hbar}{4\pi V}\text{Tr}\left[\hat{v}_{\nu}\left(-\frac{2\text{i}}{\sqrt{1-E^{2}}}\sum_{m}g_{m}\text{e}^{\text{i}m\arccos(E)}T_{m}\left(\hat{H}\right)\right)\hat{v}_{\mu}\left(-\frac{4\text{i}}{\sqrt{1-E^{2}}}\sum_{n}g_{n}T_{n}(E)T_{n}\left(\hat{H}\right)\right)-\hat{v}_{\nu}\left(-\frac{4\text{i}}{\sqrt{1-E^{2}}}\sum_{m}g_{m}T_{m}(E)T_{m}\left(\hat{H}\right)\right)\hat{v}_{\mu}\left(\frac{2\text{i}}{\sqrt{1-E^{2}}}\sum_{m}g_{n}\text{e}^{-\text{i}n\arccos(E)}T_{n}\left(\hat{H}\right)\right)\right]\\
+ & =\frac{2e^{2}\hbar}{\pi V\left(1-E^{2}\right)}\text{Tr}\left[-\hat{v}_{\nu}\left(\sum_{m}g_{m}\text{e}^{\text{i}m\arccos(E)}T_{m}\left(\hat{H}\right)\right)\hat{v}_{\mu}\left(\sum_{n}g_{n}T_{n}(E)T_{n}\left(\hat{H}\right)\right)+\hat{v}_{\nu}\left(\sum_{m}g_{m}T_{m}(E)T_{m}\left(\hat{H}\right)\right)\hat{v}_{\mu}\left(\sum_{m}g_{n}\text{e}^{-\text{i}n\arccos(E)}T_{n}\left(\hat{H}\right)\right)\right]
+\end{align}
+
+\end_inset
+
+employing stochastic evaluation of traces 
+\begin_inset Formula 
+\begin{equation}
+\text{Tr\left[\hat{O}\right]}\approx\sum_{r}\left\langle r\right|\hat{O}\left|r\right\rangle 
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+\sigma_{\mu\nu}^{I} & =\frac{2e^{2}\hbar}{\pi V\left(1-E^{2}\right)}\sum_{r}\left[\left\langle r\right|\hat{v}_{\nu}\left(\sum_{m}g_{m}T_{m}(E)T_{m}\left(\hat{H}\right)\right)\hat{v}_{\mu}\left(\sum_{m}g_{n}\text{e}^{-\text{i}n\arccos(E)}T_{n}\left(\hat{H}\right)\right)\left|r\right\rangle -\left\langle r\right|\hat{v}_{\nu}\left(\sum_{m}g_{m}\text{e}^{\text{i}m\arccos(E)}T_{m}\left(\hat{H}\right)\right)\hat{v}_{\mu}\left(\sum_{n}g_{n}T_{n}(E)T_{n}\left(\hat{H}\right)\right)\left|r\right\rangle \right]\\
+ & =\frac{2e^{2}\hbar}{\pi V\left(1-E^{2}\right)}\sum_{r}\left[\left\langle \alpha r\right|\left.\beta r\right\rangle -\left\langle \gamma r\right|\left.\delta r\right\rangle \right]
+\end{align}
+
+\end_inset
+
+with 
+\begin_inset Formula 
+\begin{align}
+\left\langle \alpha r\right| & =\left\langle r\right|\hat{v}_{\nu}\left(\sum_{m}g_{m}T_{m}(E)T_{m}\left(\hat{H}\right)\right)\\
+\left|\beta r\right\rangle  & =\hat{v}_{\mu}\left(\sum_{m}g_{n}\text{e}^{-\text{i}n\arccos(E)}T_{n}\left(\hat{H}\right)\right)\left|r\right\rangle \\
+\left\langle \gamma r\right| & =\left\langle r\right|\hat{v}_{\nu}\left(\sum_{m}g_{m}\text{e}^{\text{i}m\arccos(E)}T_{m}\left(\hat{H}\right)\right)\\
+\left|\delta r\right\rangle  & =\hat{v}_{\mu}\left(\sum_{n}g_{n}T_{n}(E)T_{n}\left(\hat{H}\right)\right)\left|r\right\rangle 
+\end{align}
+
+\end_inset
+
+The above might be organized a bit more intelligently :) The other contribution
+ is somewhat simpler
+\begin_inset Formula 
+\begin{align}
+\sigma_{\mu\nu}^{II} & =\frac{e^{2}\hbar}{4\pi V}\text{Tr}\left[\left(\hat{G}_{+}-\hat{G}_{-}\right)\left(\hat{r}_{\mu}\hat{v}_{\nu}-\hat{r}_{\nu}\hat{v}_{\mu}\right)\right]=\\
+ & =-\frac{\text{i}e^{2}\hbar}{\pi V\sqrt{1-E^{2}}}\text{Tr}\left[\left(\sum_{m}g_{m}T_{m}(E)T_{m}\left(\hat{H}\right)\right)\left(\hat{r}_{\mu}\hat{v}_{\nu}-\hat{r}_{\nu}\hat{v}_{\mu}\right)\right]\\
+ & =-\frac{\text{i}e^{2}\hbar}{\pi V\sqrt{1-E^{2}}}\sum_{r}\left[\left\langle r\right|\left(\sum_{m}g_{m}T_{m}(E)T_{m}\left(\hat{H}\right)\right)\left(\hat{r}_{\mu}\hat{v}_{\nu}-\hat{r}_{\nu}\hat{v}_{\mu}\right)\left|r\right\rangle \right]\\
+ & =-\frac{\text{i}e^{2}\hbar}{\pi V\sqrt{1-E^{2}}}\sum_{r}\left\langle Ar\right|\left.r\right\rangle 
+\end{align}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\left\langle Ar\right|=\left\langle r\right|\left(\sum_{m}g_{m}T_{m}(E)T_{m}\left(\hat{H}\right)\right)\left(\hat{r}_{\mu}\hat{v}_{\nu}-\hat{r}_{\nu}\hat{v}_{\mu}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
